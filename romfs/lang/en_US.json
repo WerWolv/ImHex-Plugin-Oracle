@@ -1,0 +1,13 @@
+{
+    "code": "en-US",
+    "language": "English",
+    "country": "United States",
+    "translations": {
+        "hex.oracle.setting.general.openai_token": "OpenAI API Token",
+        "hex.oracle.consult": "Consult the Oracle",
+        "hex.oracle.consulting": "Consulting Oracle...",
+        "hex.oracle.no_response": "The Oracle did not respond",
+        "hex.oracle.error": "The Oracle had trouble answering",
+        "hex.oracle.success": "The Oracle has spoken!"
+    }
+}

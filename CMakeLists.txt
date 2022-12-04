@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 20)
 
 # Change this to the name of your plugin #
-project(example_cpp)
+project(oracle)
 
 # Include ImHex cmake module #
 set(IMHEX_BASE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/ImHex)
@@ -15,7 +15,7 @@ addVersionDefines()
 
 # Add your source files here #
 add_library(${PROJECT_NAME} SHARED
-        source/plugin_example.cpp
+        source/plugin_oracle.cpp
 )
 
 # Add additional include directories here #

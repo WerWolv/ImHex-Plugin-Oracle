@@ -1,0 +1,26 @@
+permissions:
+  contents: write
+
+name: ImHex Release
+
+on:   
+  repository_dispatch:
+    types: [update_submodule]
+
+jobs:
+  imhex_release:
+    name: 🧩 ImHex Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧰 Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: 📁 Update submodules
+        run: |
+          git submodule update --remote
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "build: Updated ImHex submodule to latest version"
+          git push

@@ -1,13 +1,14 @@
-# ImHex C++ Plugin Template
+# ImHex Oracle Plugin
 
-This repository is a template repository for building plugins for ImHex in C++.
+Ever opened a unknown file and you just couldn't figure out what format it was in? Fear not! Simply ask the almightly Oracle for help!
+![imhex_3rLetfxhTF](https://user-images.githubusercontent.com/10835354/205517339-d7986e96-a500-4632-b530-b9f5f1132697.gif)
 
-## Building
+## How does this work?
 
-Building a plugin works similarly to building ImHex. Make sure you have all dependencies installed that are necessary to build ImHex itself. Afterwards simply use cmake in the top level of this repository to build libimhex and the plugin. Consult the ImHex README.md for a more in-depth guide on how to compile ImHex using cmake.
+The plugin takes the first 0x100 bytes of your file (or all bytes if it's smaller than that) and sends them to OpenAI's ChatGPT (`text-davinci-002`) AI and asks it to identify the file format.
+For this to work, you need to create an API Token in your OpenAI profile and enter it in ImHex's settings.
 
-## Notice
+## Is this accurate?
 
-Plugins can depend on the ImHex version you're using. To find out what commit the plugin was built for, check the commit hash next to the ImHex submodule.
-
-![image](https://user-images.githubusercontent.com/10835354/144566767-31c39e72-2d08-42b1-a38b-dcba44939ac9.png)
+Ehhhhh.... 
+For many common file formats it's pretty accurate. It had no problems correctly identifying PE files, PNGs and WebAssembly (as seen above). However, if you feed it random garbage data or file formats it cannot know (such as proprietary file formats), it will output "I don't know" if you're lucky or just make up random bullshit if you're not.
